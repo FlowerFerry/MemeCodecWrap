@@ -115,4 +115,26 @@ MG_CAPI_INLINE mmcw_colspc_e mmcw_colspc_from_avcolspc(AVColorSpace colspc)
     }
 }
 
+MG_CAPI_INLINE AVChromaLocation mmcw_chromaloc_into_avchromaloc(mmcw_chromaloc_e chromaloc) 
+{
+    switch (chromaloc) {
+#define MMCW_CHROMALOC_ENUM(CLASS, NAME, NUMBER) \
+        case CLASS##_##NAME: return AVCHROMA_LOC_##NAME;
+#include "chroma_location.inl"
+#undef MMCW_CHROMALOC_ENUM
+        default: return AVCHROMA_LOC_UNSPECIFIED;
+    }
+}
+
+MG_CAPI_INLINE mmcw_chromaloc_e mmcw_chromaloc_from_avchromaloc(AVChromaLocation chromaloc) 
+{
+    switch (chromaloc) {
+#define MMCW_CHROMALOC_ENUM(CLASS, NAME, NUMBER) \
+        case AVCHROMA_LOC_##NAME: return CLASS##_##NAME;
+#include "chroma_location.inl"
+#undef MMCW_CHROMALOC_ENUM
+        default: return MMCW_CHROMALOC_UNSPECIFIED;
+    }
+}
+
 #endif // !MMCW_CONV_FFMPEG_PIXFMT_H_INCLUDED

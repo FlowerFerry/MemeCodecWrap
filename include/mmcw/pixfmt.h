@@ -103,4 +103,23 @@ MG_CAPI_INLINE const char* mmcw_colspc_name(mmcw_colspc_e colspc)
     }
 }
 
+typedef int32_t mmcw_chromaloc_e;
+enum {
+#define MMCW_CHROMALOC_ENUM(CLASS, NAME, NUMBER) CLASS##_##NAME = NUMBER,
+#include "chroma_location.inl"
+#undef MMCW_CHROMALOC_ENUM
+    MMCW_CHROMALOC_LAST
+};
+
+MG_CAPI_INLINE const char* mmcw_chromaloc_name(mmcw_chromaloc_e chromaloc) 
+{
+    switch (chromaloc) {
+#define MMCW_CHROMALOC_ENUM(CLASS, NAME, NUMBER) \
+        case CLASS##_##NAME: return "CHROMALOC_" #NAME;
+#include "chroma_location.inl"
+#undef MMCW_CHROMALOC_ENUM
+        default: return "UNKNOWN";
+    }
+}
+
 #endif // !MMCW_PIXFMT_H_INCLUDED
