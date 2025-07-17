@@ -66,6 +66,16 @@ struct frame
         mpp_frame_set_pts(native_, _pts);
     }
 
+    void set_fmt(MppFrameFormat _format) 
+    {
+        mpp_frame_set_fmt(native_, _format);
+    }
+
+    void set_eos(uint32_t _eos) 
+    {
+        mpp_frame_set_eos(native_, _eos);
+    }
+
     void set_buffer(const buffer& _buf) 
     {
         mpp_frame_set_buffer(native_, _buf.native_handle());

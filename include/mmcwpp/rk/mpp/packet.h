@@ -43,6 +43,11 @@ struct packet
         return mpp_packet_get_length(native_);
     }
 
+    void* pos() const noexcept 
+    {
+        return mpp_packet_get_pos(native_);
+    }
+
     MppPacket native_handle() const noexcept {
         return native_;
     }
