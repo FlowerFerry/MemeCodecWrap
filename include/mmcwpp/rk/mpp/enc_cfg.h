@@ -16,10 +16,10 @@ namespace mpp {
 struct enc_cfg 
 {
     enc_cfg() noexcept : native_(nullptr) {}
-    enc_cfg(enc_cfg&& other) noexcept 
-        : native_(other.native_) 
+    enc_cfg(enc_cfg&& _other) noexcept 
+        : native_(_other.native_) 
     {
-        other.native_ = nullptr;
+        _other.native_ = nullptr;
     }
 
     ~enc_cfg() {
@@ -28,9 +28,9 @@ struct enc_cfg
         }
     }
 
-    enc_cfg& operator=(enc_cfg&& other) noexcept {
-        if (this != &other) {
-            std::swap(native_, other.native_);
+    enc_cfg& operator=(enc_cfg&& _other) noexcept {
+        if (this != &_other) {
+            std::swap(native_, _other.native_);
         }
         return *this;
     }
@@ -63,10 +63,10 @@ struct enc_cfg
         return native_;
     }
 
-    static enc_cfg take(MppEncCfg cfg) 
+    static enc_cfg take(MppEncCfg _cfg) 
     {
         enc_cfg c;
-        c.native_ = cfg;
+        c.native_ = _cfg;
         return c;
     }
 

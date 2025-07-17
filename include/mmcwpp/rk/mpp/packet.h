@@ -56,10 +56,10 @@ struct packet
         return native_;
     }
 
-    static packet take(MppPacket pkt) 
+    static packet take(MppPacket _pkt) 
     {
         packet p;
-        p.native_ = pkt;
+        p.native_ = _pkt;
         return p;
     }
 

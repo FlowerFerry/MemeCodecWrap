@@ -16,10 +16,10 @@ struct buffer_group
 {
     buffer_group() noexcept : native_(nullptr) {}
     
-    buffer_group(buffer_group&& other) noexcept 
-        : native_(other.native_) 
+    buffer_group(buffer_group&& _other) noexcept 
+        : native_(_other.native_) 
     {
-        other.native_ = nullptr;
+        _other.native_ = nullptr;
     }
 
     ~buffer_group() {
@@ -28,9 +28,9 @@ struct buffer_group
         }
     }
 
-    buffer_group& operator=(buffer_group&& other) noexcept {
-        if (this != &other) {
-            std::swap(native_, other.native_);
+    buffer_group& operator=(buffer_group&& _other) noexcept {
+        if (this != &_other) {
+            std::swap(native_, _other.native_);
         }
         return *this;
     }
@@ -43,10 +43,10 @@ struct buffer_group
         return native_;
     }
 
-    static buffer_group take(MppBufferGroup group) 
+    static buffer_group take(MppBufferGroup _group) 
     {
         buffer_group bg;
-        bg.native_ = group;
+        bg.native_ = _group;
         return bg;
     }
 

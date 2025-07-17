@@ -17,10 +17,10 @@ namespace mpp {
 struct buffer
 {
     buffer() noexcept : native_(nullptr) {}
-    buffer(buffer&& other) noexcept 
-        : native_(other.native_) 
+    buffer(buffer&& _other) noexcept 
+        : native_(_other.native_) 
     {
-        other.native_ = nullptr;
+        _other.native_ = nullptr;
     }
 
     ~buffer() {
@@ -29,9 +29,9 @@ struct buffer
         }
     }
 
-    buffer& operator=(buffer&& other) noexcept {
-        if (this != &other) {
-            std::swap(native_, other.native_);
+    buffer& operator=(buffer&& _other) noexcept {
+        if (this != &_other) {
+            std::swap(native_, _other.native_);
         }
         return *this;
     }
@@ -52,10 +52,10 @@ struct buffer
         return native_;
     }
 
-    static buffer take(MppBuffer buf) 
+    static buffer take(MppBuffer _buf) 
     {
         buffer b;
-        b.native_ = buf;
+        b.native_ = _buf;
         return b;
     }
 
