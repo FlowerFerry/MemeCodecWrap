@@ -50,7 +50,8 @@ enum {
 #undef MMCW_COLPRI_ENUM
     MMCW_COLPRI_LAST
 };
-#define MMCW_COLPRI_JEDEC_P22 MMCW_COLPRI_EBU3213
+#define MMCW_COLPRI_JEDEC_P22    MMCW_COLPRI_EBU3213
+#define MMCW_COLPRI_SMPTEST428_1 MMCW_COLPRI_SMPTE428
 
 MG_CAPI_INLINE const char* mmcw_colpri_name(mmcw_colpri_e colpri) 
 {
@@ -91,6 +92,7 @@ enum {
 #undef MMCW_COLSPC_ENUM
     MMCW_COLSPC_LAST
 };
+#define MMCW_COLSPC_YCOCG MMCW_COLSPC_YCGCO
 
 MG_CAPI_INLINE const char* mmcw_colspc_name(mmcw_colspc_e colspc) 
 {
