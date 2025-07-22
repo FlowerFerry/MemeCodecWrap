@@ -26,3 +26,5 @@ MG_CAPI_INLINE mmcw_smpfmt_e mmcw_smpfmt_from_avsmpfmt(AVSampleFormat smpfmt)
         default: return MMCW_SMPFMT_NONE;
     }
 }
+
+#endif // !MMCW_CONV_FFMPEG_SMPFMT_H_INCLUDED

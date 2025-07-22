@@ -26,3 +26,5 @@ MG_CAPI_INLINE mmcw_codecid_e mmcw_codecid_from_avcodecid(AVCodecID codecid)
         default: return MMCW_CODECID_NONE;
     }
 }
+
+#endif // !MMCW_CONV_FFMPEG_CODECID_H_INCLUDED

@@ -23,3 +23,5 @@ MG_CAPI_INLINE const char* mmcw_smpfmt_name(mmcw_smpfmt_e smpfmt)
         default: return "UNKNOWN";
     }
 }  
+
+#endif // !MMCW_SMPFMT_H_INCLUDED

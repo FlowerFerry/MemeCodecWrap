@@ -26,3 +26,5 @@ MG_CAPI_INLINE mmcw_pictype_e mmcw_pictype_from_avpictype(AVPictureType pictype)
         default: return MMCW_PICTYPE_NONE;
     }
 }
+
+#endif // !MMCW_CONV_FFMPEG_PICTYPE_H_INCLUDED

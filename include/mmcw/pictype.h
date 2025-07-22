@@ -23,3 +23,5 @@ MG_CAPI_INLINE const char* mmcw_pictype_name(mmcw_pictype_e pictype)
         default: return "UNKNOWN";
     }
 }
+
+#endif // !MMCW_PICTYPE_H_INCLUDED

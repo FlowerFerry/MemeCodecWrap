@@ -29,3 +29,5 @@ MG_CAPI_INLINE const char* mmcw_codecid_name(mmcw_codecid_e codecid)
         default: return "UNKNOWN";
     }
 }
+
+#endif // !MMCW_CODECID_H_INCLUDED
